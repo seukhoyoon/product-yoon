@@ -3,25 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0A0F1E;
+  --text-primary: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --gold: #C9A84C;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .btn-gold {
+    @apply bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-6 py-3 transition-colors duration-200 whitespace-nowrap;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-white;
+  }
+
+  .card-dark {
+    @apply bg-navy-800 border border-navy-700 p-6 md:p-8;
   }
 }

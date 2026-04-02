@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BASE CAMP — 강한 세일즈 팀은 여기서 시작합니다</title>
+  <meta name="description" content="세일즈 직군(SDR, AE, AM) 인센티브 전략 자동화. 조직 구조, 매출 목표, 영업 방식을 입력하면 BASE CAMP가 전략적 보상 설계를 완성합니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-950: #050A14;
+      --navy-900: #0A0F1E;
+      --navy-800: #0F172A;
+      --navy-700: #1E293B;
+      --gold-400: #D4A853;
+      --gold-500: #C9A84C;
+      --gold-600: #B8963E;
+      --white: #FFFFFF;
+      --gray-300: #D1D5DB;
+      --gray-400: #9CA3AF;
+      --gray-600: #4B5563;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--navy-900);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--gold-500);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-400); }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 40px; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray-400);
+      margin-bottom: 60px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--navy-900);
+      padding-top: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60%; height: 100%;
+      background: radial-gradient(ellipse at 70% 40%, rgba(201, 168, 76, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-logo {
+      font-size: 0.875rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      color: var(--gold-500);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 28px;
+    }
+
+    .hero-heading .accent { color: var(--gold-500); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gray-400);
+      max-width: 580px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .hero-sub span { color: var(--gray-300); }
+
+    /* ── EMAIL FORM ── */
+    .email-form {
+      display: flex;
+      gap: 0;
+      max-width: 500px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .email-form input[type="email"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 18px;
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      color: var(--white);
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input[type="email"]::placeholder { color: var(--gray-600); }
+    .email-form input[type="email"]:focus { border-color: var(--gold-500); }
+
+    .email-form button {
+      padding: 14px 24px;
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .email-form button:hover { background: var(--gold-400); }
+    .email-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-hint {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
+    .form-message {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .form-message.success { color: var(--gold-500); display: block; }
+    .form-message.error { color: #F87171; display: block; }
+    .form-message.duplicate { color: #FBBF24; display: block; }
+
+    /* ── PROBLEM ── */
+    #problem { background-color: var(--navy-950); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      padding: 36px 32px;
+    }
+
+    .card-number {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--gold-600);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .card p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.65; }
+
+    .transition-text {
+      padding-top: 40px;
+      border-top: 1px solid var(--navy-700);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 500;
+      color: var(--gray-300);
+    }
+
+    /* ── SOLUTION ── */
+    #solution { background-color: var(--navy-900); }
+
+    .feature-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+    .feature-card {
+      background: var(--navy-800);
+      border: 1px solid var(--navy-700);
+      border-top: 2px solid var(--gold-500);
+      padding: 36px 32px;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--gold-500);
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.65; }
+
+    .highlight-text {
+      margin-top: 60px;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--gray-400);
+    }
+
+    .highlight-text strong { color: var(--white); }
+
+    /* ── HOW IT WORKS ── */
+    #how { background-color: var(--navy-950); }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; margin-bottom: 60px; }
+
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .step-body p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.65; }
+
+    /* ── EARLY ACCESS ── */
+    #early-access { background-color: var(--navy-900); }
+
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 40px;
+      margin-bottom: 60px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--gray-300);
+    }
+
+    .benefit-check { color: var(--gold-500); font-weight: 700; }
+
+    .cta-box {
+      background: var(--navy-950);
+      border: 1px solid var(--navy-700);
+      padding: 64px 48px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+
+    .cta-box h2 .accent { color: var(--gold-500); }
+
+    .cta-box .email-form { justify-content: center; margin: 0 auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--navy-950);
+      border-top: 1px solid var(--navy-700);
+      padding: 32px 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      section { padding: 80px 20px; }
+      .hero-heading { font-size: 2.5rem; }
+      .email-form { flex-direction: column; }
+      .email-form input[type="email"], .email-form button { width: 100%; }
+      .cta-box { padding: 40px 24px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#hero" class="logo">Base Camp</a>
+    <a href="#early-access" class="nav-cta">얼리액세스 신청</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-logo">Base Camp</p>
+        <h1 class="hero-heading">
+          강한 세일즈 조직은<br />
+          <span class="accent">보상 설계부터</span> 다르다.
+        </h1>
+        <p class="hero-sub">
+          조직 구조, 매출 목표, 영업 방식을 입력하면 —<br />
+          BASE CAMP가 전략적 인센티브 설계를 자동으로 완성합니다.<br />
+          <span>SDR부터 AE, AM까지.</span>
+        </p>
+
+        <form class="email-form" id="heroForm">
+          <input type="email" placeholder="이메일 주소" required autocomplete="email" />
+          <button type="submit">얼리액세스 신청하기 →</button>
+        </form>
+        <p class="form-hint">스팸 없음. 언제든 취소 가능.</p>
+        <p class="form-message" id="heroMsg"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <p class="section-label">문제</p>
+      <h2 class="section-heading">
+        왜 대부분의 세일즈 팀은<br />제대로 싸우지 못하는가
+      </h2>
+
+      <div class="cards-grid">
+        <div class="card">
+          <p class="card-number">01</p>
+          <h3>보상 설계가 감에 의존한다</h3>
+          <p>엑셀, 전임자 관행, 업계 평균 — 우리 팀에 맞는 구조가 아니다.</p>
+        </div>
+        <div class="card">
+          <p class="card-number">02</p>
+          <h3>의무 활동은 있고, 책임은 없다</h3>
+          <p>콜 횟수, 미팅 수를 정해놓고 미이행해도 인센티브는 그대로다.</p>
+        </div>
+        <div class="card">
+          <p class="card-number">03</p>
+          <h3>SDR·AE·AM이 같은 룰로 움직인다</h3>
+          <p>역할이 다르면 보상 구조도 달라야 한다. 지금은 그렇지 않다.</p>
+        </div>
+      </div>
+
+      <p class="transition-text">BASE CAMP는 이 세 가지를 한 번에 해결합니다.</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <p class="section-label">솔루션</p>
+      <h2 class="section-heading">BASE CAMP가 하는 것</h2>
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <span class="feature-icon">⚙</span>
+          <h3>맞춤 보상 구조 자동 설계</h3>
+          <p>조직 체계, 매출, 영업 방식, 난이도를 입력하면 SDR·AE·AM별 최적 인센티브 구조를 즉시 생성한다.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3>의무 미이행 시 자동 차감 규칙</h3>
+          <p>활동 목표를 설정하고, 미달 시 인센티브가 자동으로 조정된다. 규칙이 아니라 시스템이 팀을 움직인다.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">◈</span>
+          <h3>전략적 평가 체계 통합</h3>
+          <p>보상만이 아니다. 성과 평가, 페널티, 승진 기준까지 하나의 전략으로 연결된다.</p>
+        </div>
+      </div>
+
+      <p class="highlight-text">
+        <strong>컨설턴트 없이.</strong> &nbsp;<strong>스프레드시트 없이.</strong> &nbsp;<strong>몇 분 안에.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <p class="section-label">작동 방식</p>
+      <h2 class="section-heading">3단계로 완성되는 세일즈 보상 전략</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">①</div>
+          <div class="step-body">
+            <h3>입력</h3>
+            <p>조직 구조, 매출 목표, 영업 방식, 직군별 역할, 난이도를 입력한다.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">②</div>
+          <div class="step-body">
+            <h3>설계</h3>
+            <p>BASE CAMP가 SDR·AE·AM별 인센티브 구조, 의무 활동 기준, 차감 규칙, 평가 체계를 자동으로 생성한다.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">③</div>
+          <div class="step-body">
+            <h3>적용</h3>
+            <p>완성된 전략을 팀에 바로 도입한다. 수정이 필요하면 파라미터만 바꾸면 된다.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="transition-text">
+        전략을 짜는 데 한 달이 걸렸다면 — 이제 하루면 충분합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- EARLY ACCESS -->
+  <section id="early-access">
+    <div class="container">
+      <p class="section-label">얼리액세스</p>
+      <h2 class="section-heading">지금 합류하는 팀에게만 주어지는 것</h2>
+
+      <div class="benefits">
+        <div class="benefit"><span class="benefit-check">✓</span> 베타 기간 무료 사용</div>
+        <div class="benefit"><span class="benefit-check">✓</span> 1:1 온보딩 세션 (초기 보상 구조 설계 지원)</div>
+        <div class="benefit"><span class="benefit-check">✓</span> 정식 출시 시 얼리액세스 가격 영구 적용</div>
+      </div>
+
+      <div class="cta-box">
+        <h2>
+          강한 세일즈 팀은<br />
+          <span class="accent">여기서 시작합니다.</span>
+        </h2>
+
+        <form class="email-form" id="ctaForm">
+          <input type="email" placeholder="이메일 주소" required autocomplete="email" />
+          <button type="submit">얼리액세스 신청하기 →</button>
+        </form>
+        <p class="form-hint" style="margin-top:16px;">스팸 없음. 언제든 취소 가능.</p>
+        <p class="form-message" id="ctaMsg"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 BASE CAMP. All rights reserved.
+  </footer>
+
+  <script>
+    // 이메일 폼 처리
+    // 실제 서비스 연동 시 ACTION_URL을 Formspree/백엔드 주소로 교체하세요.
+    const ACTION_URL = null // 예: 'https://formspree.io/f/YOUR_ID'
+
+    function handleForm(formId, msgId) {
+      const form = document.getElementById(formId)
+      const msg = document.getElementById(msgId)
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault()
+        const email = form.querySelector('input[type="email"]').value.trim()
+        const btn = form.querySelector('button')
+
+        msg.className = 'form-message'
+        btn.disabled = true
+        btn.textContent = '처리 중...'
+
+        // ACTION_URL 미설정 시 로컬 데모 동작
+        if (!ACTION_URL) {
+          await new Promise(r => setTimeout(r, 600))
+          msg.className = 'form-message success'
+          msg.textContent = '신청이 완료되었습니다. 정식 오픈 시 가장 먼저 연락드리겠습니다.'
+          form.reset()
+          btn.disabled = false
+          btn.textContent = '얼리액세스 신청하기 →'
+          return
+        }
+
+        try {
+          const res = await fetch(ACTION_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email }),
+          })
+          const data = await res.json()
+
+          if (data.duplicate) {
+            msg.className = 'form-message duplicate'
+            msg.textContent = '이미 신청된 이메일입니다.'
+          } else if (data.ok || res.ok) {
+            msg.className = 'form-message success'
+            msg.textContent = '신청이 완료되었습니다. 정식 오픈 시 가장 먼저 연락드리겠습니다.'
+            form.reset()
+          } else {
+            throw new Error()
+          }
+        } catch {
+          msg.className = 'form-message error'
+          msg.textContent = '오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
+        }
+
+        btn.disabled = false
+        btn.textContent = '얼리액세스 신청하기 →'
+      })
+    }
+
+    handleForm('heroForm', 'heroMsg')
+    handleForm('ctaForm', 'ctaMsg')
+  </script>
+</body>
+</html>

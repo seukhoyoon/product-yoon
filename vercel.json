@@ -1,5 +1,5 @@
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "framework": null
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next"
 }

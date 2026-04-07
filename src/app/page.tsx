@@ -3,9 +3,9 @@ import FeedbackWidget from "@/components/FeedbackWidget";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <SalesCompCalculator />
       <FeedbackWidget />
-    </>
+    </main>
   );
 }
